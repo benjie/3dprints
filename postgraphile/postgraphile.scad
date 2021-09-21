@@ -37,9 +37,9 @@ module etriangle (x1, y1, x2, y2) {
       [600,-450,baseDepth - 1000],
       [600,-450,baseDepth + 300]
     ], faces = [
-      [0, 1, 2], // bottom
+      [0, 2, 1], // bottom
       [0, 1, 3], // top
-      [0, 2, 3],
+      [0, 3, 2],
       [1, 2, 3]
     ]);
 };
@@ -96,7 +96,7 @@ module tusk (x1, y1, x2, y2, x3, y3) {
 module main() {
     union() {
     graphileheart();
-    //elephanthead();
+    elephanthead();
     //eye(385,-415,515,-455,385,-505);
     //eye(815,-415,685,-455,815,-505);
     //tusk(375,-740,460,-795,325,-900);
