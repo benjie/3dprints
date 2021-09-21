@@ -6,6 +6,9 @@ eyeLow = headEdgeDepth + (headCenterDepth - headEdgeDepth) * 0.7;
 eyeHigh = headCenterDepth;
 tuskLow = headEdgeDepth * 0.8;
 tuskHigh = tuskLow + 10;
+targetWidth = 30;
+maxX = 1175;
+scaleFactor = targetWidth/maxX;
 
 module triangle (x1, y1, x2, y2) {
     polyhedron(points = [
@@ -110,10 +113,11 @@ module main() {
     }
 }
 
-
-difference() {
-    main();
-    translate([0, -2000, -2000]) {
-        cube([2000, 2000, 2000]);
+scale([scaleFactor, scaleFactor, scaleFactor]) {
+    difference() {
+        main();
+        translate([0, -2000, -2000]) {
+            cube([2000, 2000, 2000]);
+        }
     }
 }
