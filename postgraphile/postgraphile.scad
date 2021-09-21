@@ -1,5 +1,11 @@
-baseDepth = 200;
-heartDepth = -100;
+baseDepth = 100;
+heartDepth = -baseDepth * 3 / 4;
+headEdgeDepth = 50;
+headCenterDepth = headEdgeDepth + 50;
+eyeLow = headEdgeDepth + (headCenterDepth - headEdgeDepth) * 0.7;
+eyeHigh = headCenterDepth;
+tuskLow = headEdgeDepth * 0.8;
+tuskHigh = tuskLow + 10;
 
 module triangle (x1, y1, x2, y2) {
     polyhedron(points = [
@@ -32,10 +38,10 @@ module graphileheart() {
 
 module etriangle (x1, y1, x2, y2) {
     polyhedron(points = [
-      [x1, y1, baseDepth + 220],
-      [x2, y2, baseDepth + 220],
+      [x1, y1, baseDepth + headEdgeDepth],
+      [x2, y2, baseDepth + headEdgeDepth],
       [600,-450,baseDepth - 1000],
-      [600,-450,baseDepth + 300]
+      [600,-450,baseDepth + headCenterDepth]
     ], faces = [
       [0, 2, 1], // bottom
       [0, 1, 3], // top
@@ -67,9 +73,9 @@ module eye (x1, y1, x2, y2, x3, y3) {
       [x1, y1, baseDepth],
       [x2, y2, baseDepth],
       [x3, y3, baseDepth],
-      [x1, y1, baseDepth + 285],
-      [x2, y2, baseDepth + 275],
-      [x3, y3, baseDepth + 285],
+      [x1, y1, baseDepth + eyeHigh],
+      [x2, y2, baseDepth + eyeLow],
+      [x3, y3, baseDepth + eyeHigh],
     ], faces = [
       [0, 1, 2], // bottom
       [3, 5, 4], // top
@@ -82,9 +88,9 @@ module eye (x1, y1, x2, y2, x3, y3) {
 module tusk (x1, y1, x2, y2, x3, y3) {
     polyhedron(points = [
       [600,-450, -200],
-      [x1, y1, baseDepth + 190],
-      [x2, y2, baseDepth + 190],
-      [x3, y3, baseDepth + 200],
+      [x1, y1, baseDepth + tuskLow],
+      [x2, y2, baseDepth + tuskLow],
+      [x3, y3, baseDepth + tuskHigh],
     ], faces = [
       [1, 2, 3], // top
       [0, 2, 1],
@@ -107,7 +113,7 @@ module main() {
 
 difference() {
     main();
-    translate([0, -1000, -1000]) {
-        cube([1000, 1000, 1000]);
+    translate([0, -2000, -2000]) {
+        cube([2000, 2000, 2000]);
     }
 }
