@@ -87,7 +87,7 @@ module eye (x1, y1, x2, y2, x3, y3) {
 
 module tusk (x1, y1, x2, y2, x3, y3) {
     polyhedron(points = [
-      [600,-450, -200],
+      [600,-450, -1000],
       [x1, y1, baseDepth + tuskLow],
       [x2, y2, baseDepth + tuskLow],
       [x3, y3, baseDepth + tuskHigh],
