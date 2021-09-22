@@ -1,12 +1,12 @@
 baseDepth = 100;
-heartDepth = -baseDepth * 3 / 4;
+heartDepth = -baseDepth * 0.9;
 headEdgeDepth = 50;
-headCenterDepth = headEdgeDepth + 50;
+headCenterDepth = headEdgeDepth + 100;
 eyeLow = headEdgeDepth + (headCenterDepth - headEdgeDepth) * 0.7;
-eyeHigh = headCenterDepth;
-tuskLow = headEdgeDepth * 0.8;
-tuskHigh = tuskLow + 10;
-targetWidth = 30;
+eyeHigh = eyeLow;
+tuskLow = headEdgeDepth * 0.7;
+tuskHigh = eyeHigh;
+targetWidth = 50;
 maxX = 1175;
 scaleFactor = targetWidth/maxX;
 
